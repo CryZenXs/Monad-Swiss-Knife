@@ -8,8 +8,11 @@ console = Console()
 # Note: Since Monad Testnet is new, this list should be updated with actual active endpoints.
 DEFAULT_RPCS = [
     "https://testnet-rpc.monad.xyz/",
-    "https://monad-testnet.g.alchemy.com/v2/demo", # Placeholder for Alchemy
+    "https://rpc-testnet.monadinfra.com", 
+    "https://rpc.ankr.com/monad_testnet",
+    "https://monad-testnet.drpc.org",
     "https://rpc.testnet.monad.xyz",
+    "https://monad-testnet.g.alchemy.com/v2/demo",
     "https://monad-testnet.rpc.thirdweb.com",
 ]
 

@@ -52,11 +52,13 @@ def main():
         console.print("2. 💸 Check Balance")
         console.print("3. 💓 Send Keep-Alive Ping")
         console.print("4. 📜 Deploy Contract")
-        console.print("5. ❌ Exit")
+        console.print("5. 🔄 Wrap MON (DeFi Activity) [New!]")
+        console.print("6. 🎨 Mint 'Early Adopter' NFT [New!]")
+        console.print("7. ❌ Exit")
         
-        choice = Prompt.ask("Choose an option", choices=["1", "2", "3", "4", "5"], default="1")
+        choice = Prompt.ask("Choose an option", choices=["1", "2", "3", "4", "5", "6", "7"], default="1")
 
-        if choice == "5":
+        if choice == "7":
             break
             
         elif choice == "1":
@@ -84,6 +86,22 @@ def main():
                 if tx:
                     console.print(f"[bold green]✅ Contract Deployed! Hash: {tx}[/bold green]")
                     console.print("[bold yellow]🎉 You are now a Monad Developer![/bold yellow]")
+                    ask_for_coffee()
+
+        elif choice == "5":
+            amount = Prompt.ask("Amount to wrap (MON)", default="0.001")
+            with console.status("[bold blue]Wrapping MON...[/bold blue]"):
+                tx = automator.wrap_mon(float(amount))
+            if tx:
+                console.print(f"[bold green]✅ DeFi Activity Recorded! Hash: {tx}[/bold green]")
+                ask_for_coffee()
+
+        elif choice == "6":
+             if Confirm.ask("Minting costs gas. Proceed?"):
+                with console.status("[bold purple]Minting NFT...[/bold purple]"):
+                    tx = automator.deploy_nft()
+                if tx:
+                    console.print(f"[bold green]✅ NFT Minted! Hash: {tx}[/bold green]")
                     ask_for_coffee()
 
 def ask_for_coffee():

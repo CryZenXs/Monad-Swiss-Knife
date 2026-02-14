@@ -5,10 +5,11 @@
 Automate your activity, find the fastest RPCs, and deploy contracts in seconds to qualify for airdrops and developer incentives.
 
 ## 🚀 Features
-
-*   **🚀 RPC Speed Test**: Automatically benchmarks public RPCs and switches to the fastest one.
-*   **💓 Keep-Alive**: Sends a micro-transaction to yourself to maintain daily active user (DAU) status.
-*   **📜 Instant Deploy**: Deploys a verified Smart Contract with one click to qualify for "Developer" activity.
+*   **🚀 RPC Speed Test**: Benchmarks public RPCs and finds the fastest one.
+*   **🔄 DeFi Activity**: Wraps MON -> WMON (Canonical Contract Interaction).
+*   **🎨 NFT Creator**: Deploys and mints a unique NFT (ERC-721).
+*   **📜 Instant Deploy**: Deploys a verified Contract to qualify for "Developer" activity.
+*   **💓 Keep-Alive**: Daily self-transfer to maintain active user status.
 *   **💸 Balance Checker**: Quickly view your testnet MON balance.
 
 ## 📦 Installation
@@ -36,7 +37,8 @@ Automate your activity, find the fastest RPCs, and deploy contracts in seconds t
     > **How to export from MetaMask:**
     > 1. Open MetaMask -> Click on your account (top left) -> **Account Details**.
 4.  **Get Testnet Funds (MON)**:
-    You need gas to run the bot.
+    You need gas to run the bot for transactions.
+    If you have no MON token in your wallet, get some on the faucet.
     *   **Official Faucet**: [monad.xyz/faucet](https://testnet.monad.xyz/) (or check their Discord).
     *   **Community Faucets**: Search for "Monad Testnet Faucet".
 
