@@ -11,11 +11,11 @@ from automator import MonadAutomator
 load_dotenv()
 console = Console()
 
-DONATION_ADDRESS = ["**BTC**: `bc1q5jtx6a4wa8v98acfenwx9lxka43a326q5q34dk`",
-"**ETH**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`",
-"**SOL**: `CS76buNqQXvVEZ6fbeWhR5TBcevFcWm2VdkHqYssZEub`",
-"**BNB**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`",
-"**POLYGON**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`"]
+DONATION_ADDRESS = ["**BTC**: `bc1qf0pmej7pwsn452t86rwhp2zd2evnm08pd4l839`",
+"**ETH**: `0xEf972A58dBFD48F49B133Ba7992d7a23911B40E2`",
+"**SOL**: `w4qG4YZEVgNa2CCJJSoUcUew1mYBHbwo2eDq4yw19gd`",
+"**BNB**: `0xEf972A58dBFD48F49B133Ba7992d7a23911B40E2`",
+"**POLYGON**: `0xEf972A58dBFD48F49B133Ba7992d7a23911B40E2`"]
 
 def show_header():
     title = Text("\n⚔️  MONAD SWISS KNIFE  ⚔️\n", style="bold magenta justify=center")
