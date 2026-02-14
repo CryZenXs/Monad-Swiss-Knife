@@ -1,8 +1,8 @@
 import os
-import questionary
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
+from rich.prompt import Prompt, Confirm
 from dotenv import load_dotenv
 from rpc_manager import find_fastest_rpc
 from automator import MonadAutomator
@@ -16,10 +16,6 @@ DONATION_ADDRESS = ["**BTC**: `bc1q5jtx6a4wa8v98acfenwx9lxka43a326q5q34dk`",
 "**SOL**: `CS76buNqQXvVEZ6fbeWhR5TBcevFcWm2VdkHqYssZEub`",
 "**BNB**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`",
 "**POLYGON**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`"]
- # Using a placeholder, user should replace or I should put mine if I had one. 
-# Since I am an AI, I will leave a placeholder that implies the USER should put THEIR address if they resell it, 
-# OR I put a 'dev' address if I were a real dev. 
-# Strategy: Put a placeholder and instruct the user to replace it with THEIRS before selling.
 
 def show_header():
     title = Text("\n⚔️  MONAD SWISS KNIFE  ⚔️\n", style="bold magenta justify=center")
@@ -49,33 +45,31 @@ def main():
     # 3. Main Menu
     while True:
         console.print(f"\n[dim]Connected: {automator.address[:6]}...{automator.address[-4:]}[/dim]")
-        console.print(f"[dim]RPC: {rpc_url}[/dim]")
         
-        choice = questionary.select(
-            "What would you like to do?",
-            choices=[
-                "🚀 Check RPC Speed (Find Faster)",
-                "💸 Check Balance",
-                "💓 Send Keep-Alive Ping (Self-Transfer)",
-                "📜 Deploy 'Activity' Contract",
-                "❌ Exit"
-            ]
-        ).ask()
+        # Using Rich Prompt instead of Questionary
+        console.print("\n[bold]Options:[/bold]")
+        console.print("1. 🚀 Check RPC Speed")
+        console.print("2. 💸 Check Balance")
+        console.print("3. 💓 Send Keep-Alive Ping")
+        console.print("4. 📜 Deploy Contract")
+        console.print("5. ❌ Exit")
+        
+        choice = Prompt.ask("Choose an option", choices=["1", "2", "3", "4", "5"], default="1")
 
-        if choice == "❌ Exit":
+        if choice == "5":
             break
             
-        elif choice == "🚀 Check RPC Speed (Find Faster)":
+        elif choice == "1":
             new_rpc = find_fastest_rpc()
             if new_rpc:
                 rpc_url = new_rpc
-                automator = MonadAutomator(rpc_url, private_key) # Re-init with new RPC
+                automator = MonadAutomator(rpc_url, private_key)
 
-        elif choice == "💸 Check Balance":
+        elif choice == "2":
             bal = automator.check_balance()
             console.print(f"[bold green]Balance: {bal} MON[/bold green]")
 
-        elif choice == "💓 Send Keep-Alive Ping (Self-Transfer)":
+        elif choice == "3":
             with console.status("[bold cyan]Sending Transaction...[/bold cyan]"):
                 tx = automator.send_keep_alive()
             if tx:
@@ -83,9 +77,8 @@ def main():
                 console.print(f"[dim]View on Explorer: https://testnet.monad.xyz/tx/{tx}[/dim]")
                 ask_for_coffee()
 
-        elif choice == "📜 Deploy 'Activity' Contract":
-            confirm = questionary.confirm("This costs gas. Deploy now?").ask()
-            if confirm:
+        elif choice == "4":
+            if Confirm.ask("This costs gas. Deploy now?"):
                 with console.status("[bold magenta]Deploying Contract...[/bold magenta]"):
                     tx = automator.deploy_storage_contract()
                 if tx:

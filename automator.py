@@ -36,7 +36,12 @@ class MonadAutomator:
             }
             
             signed_tx = self.w3.eth.account.sign_transaction(tx, self.private_key)
-            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            # Try accessing rawTransaction by name, fallback to index for compatibility
+            raw_tx = getattr(signed_tx, 'rawTransaction', None)
+            if raw_tx is None and hasattr(signed_tx, '__getitem__'):
+                 raw_tx = signed_tx[0]
+            
+            tx_hash = self.w3.eth.send_raw_transaction(raw_tx)
             
             return self.w3.to_hex(tx_hash)
         except Exception as e:
@@ -64,7 +69,12 @@ class MonadAutomator:
             })
 
             signed_tx = self.w3.eth.account.sign_transaction(tx, self.private_key)
-            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            # Try accessing rawTransaction by name, fallback to index for compatibility
+            raw_tx = getattr(signed_tx, 'rawTransaction', None)
+            if raw_tx is None and hasattr(signed_tx, '__getitem__'):
+                 raw_tx = signed_tx[0]
+            
+            tx_hash = self.w3.eth.send_raw_transaction(raw_tx)
             
             return self.w3.to_hex(tx_hash)
         except Exception as e:

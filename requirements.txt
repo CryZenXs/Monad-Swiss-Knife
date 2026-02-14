@@ -2,4 +2,3 @@ web3
 rich
 python-dotenv
 requests
-questionary

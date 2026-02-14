@@ -35,8 +35,10 @@ Automate your activity, find the fastest RPCs, and deploy contracts in seconds t
     >
     > **How to export from MetaMask:**
     > 1. Open MetaMask -> Click on your account (top left) -> **Account Details**.
-    > 2. Click **Show Private Key**.
-    > 3. Copy the key (starts with `0x...` or hex).
+4.  **Get Testnet Funds (MON)**:
+    You need gas to run the bot.
+    *   **Official Faucet**: [monad.xyz/faucet](https://testnet.monad.xyz/) (or check their Discord).
+    *   **Community Faucets**: Search for "Monad Testnet Faucet".
 
 ## 🛠 Usage
 
