@@ -11,7 +11,12 @@ from automator import MonadAutomator
 load_dotenv()
 console = Console()
 
-DONATION_ADDRESS = "0xYourWalletAddressHere" # Using a placeholder, user should replace or I should put mine if I had one. 
+DONATION_ADDRESS = ["**BTC**: `bc1q5jtx6a4wa8v98acfenwx9lxka43a326q5q34dk`",
+"**ETH**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`",
+"**SOL**: `CS76buNqQXvVEZ6fbeWhR5TBcevFcWm2VdkHqYssZEub`",
+"**BNB**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`",
+"**POLYGON**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`"]
+ # Using a placeholder, user should replace or I should put mine if I had one. 
 # Since I am an AI, I will leave a placeholder that implies the USER should put THEIR address if they resell it, 
 # OR I put a 'dev' address if I were a real dev. 
 # Strategy: Put a placeholder and instruct the user to replace it with THEIRS before selling.
