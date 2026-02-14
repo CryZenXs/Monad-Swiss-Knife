@@ -25,17 +25,18 @@ Automate your activity, find the fastest RPCs, and deploy contracts in seconds t
     ```
 
 3.  **Setup Wallet**:
-    Open the existing `.env` file in this directory and add your private key:
+    Create a file named `.env` in this directory (or rename `.env.example`) and add your private key:
     ```env
     PRIVATE_KEY=your_private_key_here
     MONAD_RPC_URL=https://testnet-rpc.monad.xyz/
     ```
 
-    > **How to get your Private Key (MetaMask):**
-    > 1. Open MetaMask and click the **three dots** (top right).
-    > 2. Select **Account Details**.
-    > 3. Click **Show Private Key**.
-    > 4. Enter your password and copy the key (starts with `0x` or hex).
+    > **ℹ️ Note:** Monad is EVM-compatible. You can use the same Private Key you use for Ethereum, BNB, or Polygon.
+    >
+    > **How to export from MetaMask:**
+    > 1. Open MetaMask -> Click on your account (top left) -> **Account Details**.
+    > 2. Click **Show Private Key**.
+    > 3. Copy the key (starts with `0x...` or hex).
 
 ## 🛠 Usage
 

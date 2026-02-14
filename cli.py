@@ -96,12 +96,14 @@ def main():
 def ask_for_coffee():
     console.print("\n" + "="*40)
     console.print("[bold yellow]☕ Found this useful?[/bold yellow]")
-    console.print("Support the dev: [cyan]" + DONATION_ADDRESS + "[/cyan]")
+    console.print("Support the dev:")
+    for addr in DONATION_ADDRESS:
+        console.print(f"[cyan]{addr}[/cyan]")
     console.print("="*40 + "\n")
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print (ask_for_coffee)
+        ask_for_coffee()
         console.print("\n[bold red]Exiting...[/bold red]")
