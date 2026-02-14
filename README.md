@@ -25,11 +25,17 @@ Automate your activity, find the fastest RPCs, and deploy contracts in seconds t
     ```
 
 3.  **Setup Wallet**:
-    Create a `.env` file in this directory and add your private key:
+    Open the existing `.env` file in this directory and add your private key:
     ```env
     PRIVATE_KEY=your_private_key_here
     MONAD_RPC_URL=https://testnet-rpc.monad.xyz/
     ```
+
+    > **How to get your Private Key (MetaMask):**
+    > 1. Open MetaMask and click the **three dots** (top right).
+    > 2. Select **Account Details**.
+    > 3. Click **Show Private Key**.
+    > 4. Enter your password and copy the key (starts with `0x` or hex).
 
 ## 🛠 Usage
 
