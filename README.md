@@ -48,6 +48,9 @@ Follow the interactive menu to automate your farming and development tasks.
 
 ## ☕ Support
 
-If this tool helped you farm an airdrop, consider buying me a coffee!
-**SOL**: `[Insert Your SOL Address]`
-**EVM**: `[Insert Your EVM Address]`
+If this tool helped you farm an airdrop, consider buying me a coffee! Thx!
+**BTC**: `bc1q5jtx6a4wa8v98acfenwx9lxka43a326q5q34dk`
+**ETH**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`
+**SOL**: `CS76buNqQXvVEZ6fbeWhR5TBcevFcWm2VdkHqYssZEub`
+**BNB**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`
+**POLYGON**: `0x5117f974DC5Bb28aCC34c7Ac5acc6048b15167F4`
