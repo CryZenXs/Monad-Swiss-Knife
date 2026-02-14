@@ -103,4 +103,5 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
+        print (ask_for_coffee)
         console.print("\n[bold red]Exiting...[/bold red]")
