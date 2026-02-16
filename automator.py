@@ -81,6 +81,27 @@ class MonadAutomator:
             console.print(f"[red]Deployment failed: {e}[/red]")
             return None
 
+    # --- v2.1 Features ---
+    WMON_ADDRESS = "0xFb8bf4c1CC7a94c73D209a149eA2AbEa852BC541"
+
+    def get_balance_of(self, address):
+        """Checks native MON balance for any address."""
+        try:
+            balance_wei = self.w3.eth.get_balance(address)
+            return self.w3.from_wei(balance_wei, 'ether')
+        except:
+            return 0
+
+    def get_wmon_balance(self, address):
+        """Checks WMON balance for any address."""
+        abi = [{"constant":True,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"}]
+        try:
+            contract = self.w3.eth.contract(address=self.WMON_ADDRESS, abi=abi)
+            balance_wei = contract.functions.balanceOf(address).call()
+            return self.w3.from_wei(balance_wei, 'ether')
+        except:
+            return 0
+
     # --- v2.0 Features ---
     
     def wrap_mon(self, amount_eth=0.001):

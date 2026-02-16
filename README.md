@@ -1,4 +1,4 @@
-# ⚔️ Monad Swiss Knife
+# ⚔️ Monad Swiss Knife v2.1
 
 **The ultimate CLI tool for Monad Testnet developers and power users.**
 
@@ -6,6 +6,7 @@ Automate your activity, find the fastest RPCs, and deploy contracts in seconds t
 
 ## 🚀 Features
 *   **🚀 RPC Speed Test**: Benchmarks public RPCs and finds the fastest one.
+*   **📊 Multi-Wallet Hub [v2.1]**: Monitor balances (MON & WMON) across multiple wallets.
 *   **🔄 DeFi Activity**: Wraps MON -> WMON (Canonical Contract Interaction).
 *   **🎨 NFT Creator**: Deploys and mints a unique NFT (ERC-721).
 *   **📜 Instant Deploy**: Deploys a verified Contract to qualify for "Developer" activity.

@@ -1,5 +1,6 @@
 import os
 from rich.console import Console
+from rich.table import Table
 from rich.panel import Panel
 from rich.text import Text
 from rich.prompt import Prompt, Confirm
@@ -54,11 +55,12 @@ def main():
         console.print("4. 📜 Deploy Contract")
         console.print("5. 🔄 Wrap MON (DeFi Activity) [New!]")
         console.print("6. 🎨 Mint 'Early Adopter' NFT [New!]")
-        console.print("7. ❌ Exit")
+        console.print("7. 📊 Multi-Wallet Hub [v2.1]")
+        console.print("8. ❌ Exit")
         
-        choice = Prompt.ask("Choose an option", choices=["1", "2", "3", "4", "5", "6", "7"], default="1")
+        choice = Prompt.ask("Choose an option", choices=["1", "2", "3", "4", "5", "6", "7", "8"], default="1")
 
-        if choice == "7":
+        if choice == "8":
             break
             
         elif choice == "1":
@@ -103,6 +105,41 @@ def main():
                 if tx:
                     console.print(f"[bold green]✅ NFT Minted! Hash: {tx}[/bold green]")
                     ask_for_coffee()
+
+        elif choice == "7":
+            wallets_input = Prompt.ask("Enter wallet addresses (separated by comma) or path to .txt file")
+            
+            addresses = []
+            if wallets_input.endswith(".txt"):
+                if os.path.exists(wallets_input):
+                    with open(wallets_input, "r") as f:
+                        addresses = [line.strip() for line in f if line.strip().startswith("0x")]
+                else:
+                    console.print("[red]File not found.[/red]")
+            else:
+                addresses = [a.strip() for a in wallets_input.split(",") if a.strip().startswith("0x")]
+
+            if not addresses:
+                console.print("[yellow]No valid addresses found.[/yellow]")
+                continue
+
+            table = Table(title="📊 Multi-Wallet Dashboard", border_style="cyan")
+            table.add_column("Wallet", style="dim")
+            table.add_column("MON Balance", justify="right", style="green")
+            table.add_column("WMON Balance", justify="right", style="blue")
+            
+            with console.status("[bold blue]Fetching balances...[/bold blue]"):
+                for addr in addresses:
+                    mon_bal = automator.get_balance_of(addr)
+                    wmon_bal = automator.get_wmon_balance(addr)
+                    table.add_row(
+                        f"{addr[:6]}...{addr[-4:]}",
+                        f"{mon_bal:.4f} MON",
+                        f"{wmon_bal:.4f} WMON"
+                    )
+            
+            console.print(table)
+            ask_for_coffee()
 
 def ask_for_coffee():
     console.print("\n" + "="*40)
